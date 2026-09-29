@@ -1,0 +1,275 @@
+/* ========================================================= */
+/* RESUME ACCESS PAGE */
+/* ========================================================= */
+
+.resume-access-page {
+  min-height: calc(100vh - 150px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px 8% 80px;
+}
+
+/* Main card */
+
+.resume-access-card {
+  width: 100%;
+  max-width: 720px;
+
+  padding: 48px;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 23, 18, 0.96),
+      rgba(16, 14, 12, 0.96)
+    );
+
+  border:
+    1px solid rgba(201, 162, 110, 0.35);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+/* Lock icon */
+
+.resume-lock {
+  width: 76px;
+  height: 76px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  font-size: 34px;
+
+  background:
+    rgba(201, 162, 110, 0.12);
+
+  border:
+    1px solid rgba(201, 162, 110, 0.35);
+
+  box-shadow:
+    0 0 25px rgba(201, 162, 110, 0.12);
+}
+
+/* Small label */
+
+.resume-small-title {
+  color: #c9a26e;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+/* Main title */
+
+.resume-access-card h1 {
+  color: #ffffff;
+
+  font-size: 42px;
+
+  margin-bottom: 18px;
+}
+
+/* Description */
+
+.resume-description {
+  max-width: 600px;
+
+  margin: 0 auto 35px;
+
+  color: #d8cfc2;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ========================================================= */
+/* FORM */
+/* ========================================================= */
+
+.resume-request-form {
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.resume-form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.resume-form-group label {
+  color: #e6c18a;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resume-form-group input,
+.resume-form-group textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(201, 162, 110, 0.28);
+
+  outline: none;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.resume-form-group textarea {
+  resize: vertical;
+
+  min-height: 130px;
+}
+
+.resume-form-group input::placeholder,
+.resume-form-group textarea::placeholder {
+  color: #857b6e;
+}
+
+/* Focus */
+
+.resume-form-group input:focus,
+.resume-form-group textarea:focus {
+  border-color: #c9a26e;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 0 0 3px rgba(201, 162, 110, 0.08);
+}
+
+/* ========================================================= */
+/* SUBMIT BUTTON */
+/* ========================================================= */
+
+.resume-request-btn {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 15px 20px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #c9a26e,
+      #e6c18a
+    );
+
+  color: #17130f;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.resume-request-btn:hover {
+  transform: translateY(-3px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #e6c18a,
+      #f1d5a8
+    );
+
+  box-shadow:
+    0 12px 30px rgba(201, 162, 110, 0.18);
+}
+
+/* ========================================================= */
+/* PRIVACY NOTE */
+/* ========================================================= */
+
+.resume-privacy-note {
+  margin-top: 22px;
+
+  color: #9f9588;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* ========================================================= */
+/* MOBILE */
+/* ========================================================= */
+
+@media (max-width: 700px) {
+
+  .resume-access-page {
+    padding:
+      40px 5%
+      60px;
+  }
+
+  .resume-access-card {
+    padding:
+      35px 22px;
+  }
+
+  .resume-access-card h1 {
+    font-size: 32px;
+  }
+
+  .resume-description {
+    font-size: 15px;
+  }
+
+  .resume-lock {
+    width: 65px;
+    height: 65px;
+
+    font-size: 29px;
+  }
+}

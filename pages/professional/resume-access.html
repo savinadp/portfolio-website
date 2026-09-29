@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Resume Access | Savina Portfolio</title>
+
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/professional.css">
+  <link rel="stylesheet" href="../../css/resume-access.css">
+</head>
+
+<body>
+
+  <div class="professional-page">
+
+    <!-- NAVBAR -->
+
+    <header class="professional-navbar">
+
+      <a href="../../index.html">
+        <img
+          src="../../assets/images/logo.png"
+          alt="Savina Portfolio Logo"
+          class="professional-logo"
+        >
+      </a>
+
+      <nav class="professional-nav-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </header>
+
+
+    <!-- RESUME ACCESS -->
+
+    <main class="resume-access-page">
+
+      <section class="resume-access-card">
+
+        <div class="resume-lock">
+          🔒
+        </div>
+
+        <p class="resume-small-title">
+          PRIVATE DOCUMENT
+        </p>
+
+        <h1>
+          Request Resume Access
+        </h1>
+
+        <p class="resume-description">
+          My resume contains personal contact and professional information.
+          Please submit a request below, and I can provide access directly
+          after reviewing your request.
+        </p>
+
+
+        <!-- REQUEST FORM -->
+
+        <form
+          class="resume-request-form"
+          action="https://formspree.io/f/xoevyagb"
+          method="POST"
+        >
+
+          <!-- This helps identify the form in the email -->
+
+          <input
+            type="hidden"
+            name="form_type"
+            value="Resume Access Request"
+          >
+
+
+          <div class="resume-form-group">
+
+            <label for="resume-name">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="resume-name"
+              name="name"
+              placeholder="Your full name"
+              required
+            >
+
+          </div>
+
+
+          <div class="resume-form-group">
+
+            <label for="resume-email">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="resume-email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="resume-form-group">
+
+            <label for="resume-company">
+              Company / Organization
+            </label>
+
+            <input
+              type="text"
+              id="resume-company"
+              name="company"
+              placeholder="Company, university, or organization"
+            >
+
+          </div>
+
+
+          <div class="resume-form-group">
+
+            <label for="resume-reason">
+              Reason for Request
+            </label>
+
+            <textarea
+              id="resume-reason"
+              name="reason"
+              rows="5"
+              placeholder="Please briefly tell me why you would like access to my resume."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="resume-request-btn"
+          >
+            🔐 Request Access
+          </button>
+
+        </form>
+
+
+        <p class="resume-privacy-note">
+          Access is not automatic. I review each request before sharing my resume.
+        </p>
+
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="professional-footer">
+      <p>
+        © 2026 Savina Palihakkara. All rights reserved.
+      </p>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

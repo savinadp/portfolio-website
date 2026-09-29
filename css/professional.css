@@ -8,8 +8,14 @@ body {
 
 /* Full professional page */
 .professional-page {
-  min-height: 100vh;
+  height: 100vh;
   color: #ffffff;
+
+  display: grid;
+  grid-template-rows: 90px 1fr 42px;
+
+  overflow: hidden;
+
   background:
     radial-gradient(circle at top left, rgba(201, 162, 110, 0.14), transparent 30%),
     radial-gradient(circle at bottom right, rgba(95, 72, 50, 0.20), transparent 35%),
@@ -22,7 +28,10 @@ body {
 
 .professional-navbar {
   width: 100%;
-  padding: 22px 8%;
+  height: 90px;
+
+  padding: 10px 8%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,10 +43,13 @@ body {
 }
 
 .professional-logo {
-  width: 100px;
-  height: auto;
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
   display: block;
-  border-radius: 12px;
+
+  border-radius: 50%;
 }
 
 /* Navigation links */
@@ -82,18 +94,25 @@ body {
 /* ============================= */
 
 .professional-hero {
-  min-height: calc(100vh - 100px);
-  padding: 60px 8%;
+  min-height: 0;
+  height: 100%;
+
+  padding: 20px 8%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+
+  gap: 55px;
+
+  overflow: hidden;
 }
 
 /* Left text area */
-.hero-text {
-  max-width: 650px;
-  animation: fadeUp 1s ease forwards;
+.hero-text h1 {
+  font-size: 58px;
+  line-height: 1.05;
+  margin-bottom: 18px;
 }
 
 .small-title {
@@ -115,10 +134,12 @@ body {
 }
 
 .hero-description {
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.6;
+
   color: #e8e1d6;
-  max-width: 580px;
+
+  max-width: 650px;
 }
 
 /* ============================= */
@@ -126,7 +147,7 @@ body {
 /* ============================= */
 
 .hero-buttons {
-  margin-top: 35px;
+  margin-top: 25px;
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
@@ -169,7 +190,7 @@ body {
 
 .hero-card {
   width: 390px;
-  padding: 35px;
+  padding: 26px 30px;
   background: rgba(24, 22, 20, 0.92);
   border: 1px solid rgba(201, 162, 110, 0.35);
   border-radius: 24px;
@@ -179,14 +200,14 @@ body {
 
 .hero-card h2 {
   color: #e6c18a;
-  margin-bottom: 22px;
+  margin-bottom: 15px;
   font-size: 28px;
 }
 
 /* Each item inside What I Do card */
 .hero-card-item {
   color: #ddd3c4;
-  padding: 14px 0;
+  padding: 9px 0;
   border-bottom: 1px solid rgba(201, 162, 110, 0.18);
   display: flex;
   flex-direction: column;
@@ -742,13 +763,17 @@ body {
 /* ============================= */
 
 .professional-footer {
-  padding: 12px 8%;
+  height: 42px;
+
+  padding: 0 8%;
+
   border-top: 1px solid rgba(201, 162, 110, 0.25);
   background: rgba(15, 15, 15, 0.45);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+
   color: #cfc6b8;
 }
 
@@ -784,3 +809,8 @@ body {
     flex-wrap: wrap;
   }
 }
+
+
+
+
+

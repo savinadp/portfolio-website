@@ -1,0 +1,647 @@
+/* ========================================================= */
+/* FUN WAY - SKILL ZONE */
+/* ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(110, 67, 255, 0.32),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 10% 75%,
+      rgba(127, 252, 255, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 65%,
+      rgba(255, 122, 247, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #050510,
+      #110c31,
+      #08051b
+    );
+
+  overflow-x: hidden;
+}
+
+/* ========================================================= */
+/* PAGE */
+/* ========================================================= */
+
+.skills-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* subtle stars */
+
+.skills-page::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(127, 252, 255, 0.7) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 122, 247, 0.55) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    240px 240px;
+
+  background-position:
+    0 0,
+    40px 70px,
+    90px 30px;
+
+  opacity: 0.28;
+
+  z-index: 0;
+}
+
+/* ========================================================= */
+/* NAVBAR */
+/* ========================================================= */
+
+.skills-navbar {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+
+  padding: 20px 6%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-logo {
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(127, 252, 255, 0.45);
+
+  box-shadow:
+    0 0 15px rgba(127, 252, 255, 0.3);
+}
+
+.skills-navbar nav {
+  display: flex;
+  gap: 28px;
+}
+
+.skills-navbar nav a {
+  color: #e8ddff;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.skills-navbar nav a:hover {
+  color: #7ffcff;
+  transform: translateY(-2px);
+}
+
+/* ========================================================= */
+/* MAIN */
+/* ========================================================= */
+
+.skills-main {
+  position: relative;
+  z-index: 5;
+
+  width: min(1200px, 90%);
+
+  margin: 0 auto;
+
+  padding:
+    45px 0
+    80px;
+}
+
+/* ========================================================= */
+/* INTRO */
+/* ========================================================= */
+
+.skills-intro {
+  max-width: 760px;
+
+  margin:
+    0 auto
+    55px;
+
+  text-align: center;
+}
+
+.level-text {
+  color: #ff7af7;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin-bottom: 13px;
+}
+
+.skills-intro h1 {
+  font-size: clamp(45px, 7vw, 72px);
+
+  margin-bottom: 18px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 18px rgba(127, 252, 255, 0.16),
+    0 0 40px rgba(111, 66, 255, 0.18);
+}
+
+.intro-text {
+  color: #ddd3ff;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* ========================================================= */
+/* SKILL GRID */
+/* ========================================================= */
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+/* ========================================================= */
+/* SKILL CARD */
+/* ========================================================= */
+
+.skill-card {
+  position: relative;
+
+  min-height: 320px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(23, 18, 61, 0.94),
+      rgba(8, 7, 29, 0.95)
+    );
+
+  border:
+    1px solid rgba(127, 252, 255, 0.22);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.32);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* top neon line */
+
+.skill-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 15%;
+  right: 15%;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #7ffcff,
+      #ff7af7,
+      transparent
+    );
+
+  box-shadow:
+    0 0 15px rgba(127, 252, 255, 0.7);
+}
+
+.skill-card:hover {
+  transform:
+    translateY(-9px);
+
+  border-color:
+    rgba(127, 252, 255, 0.65);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(127, 252, 255, 0.08);
+}
+
+/* ========================================================= */
+/* CARD NUMBER */
+/* ========================================================= */
+
+.skill-number {
+  position: absolute;
+
+  top: 22px;
+  right: 24px;
+
+  color:
+    rgba(255, 255, 255, 0.12);
+
+  font-size: 42px;
+  font-weight: 900;
+}
+
+/* ========================================================= */
+/* ICON */
+/* ========================================================= */
+
+.skill-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(127, 252, 255, 0.09);
+
+  border:
+    1px solid rgba(127, 252, 255, 0.3);
+
+  color: #7ffcff;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 18px rgba(127, 252, 255, 0.12);
+}
+
+/* ========================================================= */
+/* TITLE */
+/* ========================================================= */
+
+.skill-card h2 {
+  color: #7ffcff;
+
+  font-size: 25px;
+
+  margin-bottom: 17px;
+}
+
+/* ========================================================= */
+/* TAGS */
+/* ========================================================= */
+
+.skill-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+.skill-tags span {
+  padding:
+    7px 11px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 122, 247, 0.08);
+
+  border:
+    1px solid rgba(255, 122, 247, 0.28);
+
+  color: #f2d9ff;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ========================================================= */
+/* DESCRIPTION */
+/* ========================================================= */
+
+.skill-card p {
+  color: #d8d0ee;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  margin-bottom: 24px;
+}
+
+/* ========================================================= */
+/* POWER BAR */
+/* ========================================================= */
+
+.power-bar {
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+  bottom: 28px;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(127, 252, 255, 0.12);
+}
+
+.power-fill {
+  height: 100%;
+
+  width: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7ffcff,
+      #7b61ff,
+      #ff7af7
+    );
+
+  box-shadow:
+    0 0 10px rgba(127, 252, 255, 0.55);
+
+  animation:
+    loadPower
+    1.5s
+    ease
+    forwards;
+}
+
+/* Different widths only for visual variety */
+
+.programming-power {
+  --power-width: 88%;
+}
+
+.web-power {
+  --power-width: 90%;
+}
+
+.automation-power {
+  --power-width: 80%;
+}
+
+.data-power {
+  --power-width: 78%;
+}
+
+.systems-power {
+  --power-width: 75%;
+}
+
+.tools-power {
+  --power-width: 86%;
+}
+
+@keyframes loadPower {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--power-width);
+  }
+}
+
+/* ========================================================= */
+/* NEXT LEVEL */
+/* ========================================================= */
+
+.next-level {
+  margin-top: 65px;
+
+  padding:
+    45px 30px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 14, 47, 0.9),
+      rgba(7, 6, 24, 0.93)
+    );
+
+  border:
+    1px solid rgba(127, 252, 255, 0.24);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.28);
+}
+
+.level-complete {
+  color: #ff7af7;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  margin-bottom: 10px;
+}
+
+.next-level h2 {
+  font-size: 33px;
+
+  margin-bottom: 12px;
+}
+
+.next-level > p:not(.level-complete) {
+  color: #d8d0ee;
+
+  margin-bottom: 25px;
+}
+
+/* ========================================================= */
+/* BUTTONS */
+/* ========================================================= */
+
+.next-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+.next-buttons a {
+  padding:
+    13px 20px;
+
+  border-radius: 14px;
+
+  color: #050510;
+
+  background: #7ffcff;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.next-buttons a:hover {
+  background: #ffffff;
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 0 22px rgba(127, 252, 255, 0.25);
+}
+
+/* ========================================================= */
+/* RESPONSIVE */
+/* ========================================================= */
+
+@media (max-width: 950px) {
+
+  .skills-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+
+  .skills-navbar {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .skills-navbar nav {
+    gap: 17px;
+  }
+
+  .skills-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skills-main {
+    padding-top: 30px;
+  }
+
+  .skills-intro {
+    margin-bottom: 40px;
+  }
+
+  .skills-intro h1 {
+    font-size: 43px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    min-height: 310px;
+  }
+
+  .next-level {
+    padding:
+      35px 20px;
+  }
+
+  .next-level h2 {
+    font-size: 27px;
+  }
+}

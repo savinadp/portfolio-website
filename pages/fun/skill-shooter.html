@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Alien Skill Shooter</title>
+
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/fun-game.css">
+</head>
+
+<body>
+
+  <div class="game-page">
+
+    <!-- ====================================================== -->
+    <!-- NAVBAR -->
+    <!-- ====================================================== -->
+
+    <header class="game-navbar">
+
+      <a href="../../index.html">
+        <img
+          src="../../assets/images/logo.png"
+          alt="Savina Portfolio Logo"
+          class="game-logo"
+        >
+      </a>
+
+      <nav>
+        <a href="home.html">Fun Home</a>
+        <a href="../professional/home.html">Professional Way</a>
+      </nav>
+
+    </header>
+
+
+    <!-- ====================================================== -->
+    <!-- GAME INFORMATION -->
+    <!-- ====================================================== -->
+
+    <section class="game-hud">
+
+      <div>
+
+        <!-- <p class="game-small-title">
+          Fun Way Mission
+        </p>
+
+        <h1>
+          Alien Skill Shooter
+        </h1> -->
+
+        <p class="game-small-title">
+          Zap the running aliens to unlock my portfolio details.
+        </p>
+
+    
+
+      </div>
+
+
+      <div class="score-box">
+
+        <span>
+          Unlocked
+        </span>
+
+        <strong id="scoreText">
+          0 / 6
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- GAME AREA -->
+    <!-- ====================================================== -->
+
+    <main
+      class="space-scene"
+      id="spaceScene"
+    >
+
+      <!-- Background -->
+
+      <div class="stars"></div>
+
+      <div class="planet"></div>
+
+      <div class="mountains"></div>
+
+      <div class="grid-floor"></div>
+
+
+      <!-- ====================================================== -->
+      <!-- MOUSE CROSSHAIR -->
+      <!-- ====================================================== -->
+
+      <div
+        class="mouse-crosshair"
+        id="mouseCrosshair"
+      ></div>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 1 -->
+      <!-- Web Development -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-one"
+        type="button"
+        data-title="Web Development"
+        data-info="I build responsive web pages using HTML, CSS, and JavaScript. This portfolio is also one of my web development projects."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 2 -->
+      <!-- Python -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-two"
+        type="button"
+        data-title="Python Projects"
+        data-info="I use Python for projects involving Flask, OCR, semantic analysis, APIs, and automation."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 3 -->
+      <!-- Automation -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-three"
+        type="button"
+        data-title="Automation"
+        data-info="I have worked with Power Automate and digital tools to support workflows and improve repetitive processes."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 4 -->
+      <!-- Data -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-four"
+        type="button"
+        data-title="Data Skills"
+        data-info="I have experience using SQL, Power BI, and data analysis tools to work with and visualize information."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 5 -->
+      <!-- Co-op -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-five"
+        type="button"
+        data-title="Co-op Experience"
+        data-info="I completed my first co-op with the Dalhousie Faculty of Computer Science CSEd team, supporting instructors, websites, automation, and digital learning tools."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- ALIEN 6 -->
+      <!-- Projects -->
+      <!-- ====================================================== -->
+
+      <button
+        class="alien alien-six"
+        type="button"
+        data-title="Projects"
+        data-info="My projects include a syllabus checker, AI chatbot, lexical analyzer, messaging software, and this portfolio website."
+      >
+
+        <div class="runner-rig">
+
+          <img
+            src="../../assets/images/aliens/left-leg.png"
+            class="runner-part left-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-leg.png"
+            class="runner-part right-leg"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/body.png"
+            class="runner-part runner-body"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/left-arm.png"
+            class="runner-part left-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/right-arm.png"
+            class="runner-part right-arm"
+            alt=""
+          >
+
+          <img
+            src="../../assets/images/aliens/head.png"
+            class="runner-part runner-head"
+            alt="Alien character"
+          >
+
+        </div>
+
+      </button>
+
+
+      <!-- ====================================================== -->
+      <!-- DETAIL POPUP -->
+      <!-- ====================================================== -->
+
+      <div
+        class="detail-popup"
+        id="detailPopup"
+      >
+
+        <button
+          class="close-popup"
+          id="closePopup"
+          type="button"
+          aria-label="Close detail popup"
+        >
+          ×
+        </button>
+
+        <p class="popup-label">
+          Unlocked Detail
+        </p>
+
+        <h2 id="detailTitle">
+          Skill unlocked
+        </h2>
+
+        <p id="detailText">
+          Portfolio detail will appear here.
+        </p>
+
+      </div>
+
+
+      <!-- ====================================================== -->
+      <!-- MISSION COMPLETE -->
+      <!-- ====================================================== -->
+
+        <div
+            class="mission-complete"
+            id="missionComplete"
+            >
+
+            <h2>
+                Mission Complete!
+            </h2>
+
+            <p>
+                You unlocked all of Savina's portfolio skills.
+            </p>
+
+            <div class="mission-buttons">
+
+                <a href="skills.html">
+                Unlock My Skills
+                </a>
+
+                <a href="skill-shooter.html">
+                Play Again
+                </a>
+
+                <a href="home.html">
+                Fun Home
+                </a>
+
+            </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ====================================================== -->
+  <!-- JAVASCRIPT -->
+  <!-- ====================================================== -->
+
+  <script src="../../javascript/fun-game.js"></script>
+
+</body>
+
+</html>

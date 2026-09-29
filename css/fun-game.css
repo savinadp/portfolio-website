@@ -1,0 +1,1696 @@
+/* ========================================================= */
+/* ALIEN SKILL SHOOTER */
+/* Rigged running character version */
+/* ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #050510;
+  color: #ffffff;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* ========================================================= */
+/* PAGE */
+/* ========================================================= */
+
+.game-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #050510;
+}
+
+/* ========================================================= */
+/* NAVBAR */
+/* ========================================================= */
+
+.game-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 20px 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 150;
+}
+
+.game-logo {
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 0 15px rgba(127, 252, 255, 0.25);
+}
+
+.game-navbar nav {
+  display: flex;
+  gap: 28px;
+}
+
+.game-navbar nav a {
+  color: #eadcff;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.game-navbar nav a:hover {
+  color: #7ffcff;
+  transform: translateY(-2px);
+}
+
+/* ========================================================= */
+/* HUD */
+/* ========================================================= */
+
+.game-hud {
+  position: absolute;
+
+  top: 105px;
+  left: 5%;
+  right: 5%;
+
+  z-index: 120;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  pointer-events: none;
+}
+
+.game-small-title {
+  color: #7ffcff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.game-hud h1 {
+  font-size: 48px;
+  line-height: 1;
+
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 0 25px rgba(127, 252, 255, 0.15);
+}
+
+.game-instruction {
+  color: #ddd3ff;
+  font-size: 17px;
+}
+
+/* SCORE */
+
+.score-box {
+  min-width: 125px;
+
+  padding: 15px 24px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background:
+    rgba(13, 11, 40, 0.8);
+
+  border:
+    1px solid rgba(127, 252, 255, 0.35);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 30px rgba(127, 252, 255, 0.12);
+}
+
+.score-box span {
+  display: block;
+
+  color: #cfc3f6;
+
+  font-size: 12px;
+
+  margin-bottom: 5px;
+}
+
+.score-box strong {
+  color: #7ffcff;
+  font-size: 28px;
+}
+
+/* ========================================================= */
+/* FULL SCREEN SPACE SCENE */
+/* ========================================================= */
+
+.space-scene {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  perspective: 1000px;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(113, 61, 255, 0.42),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 65%,
+      rgba(127, 252, 255, 0.08),
+      transparent 25%
+    ),
+    linear-gradient(
+      to bottom,
+      #060719 0%,
+      #111038 52%,
+      #070313 100%
+    );
+}
+
+/* ========================================================= */
+/* STARS */
+/* ========================================================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(127, 252, 255, 0.9) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 122, 247, 0.8) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    90px 90px,
+    130px 130px,
+    170px 170px;
+
+  background-position:
+    0 0,
+    40px 60px,
+    70px 20px;
+
+  opacity: 0.65;
+}
+
+/* ========================================================= */
+/* PLANET */
+/* ========================================================= */
+
+.planet {
+  position: absolute;
+
+  top: 20%;
+  right: 20%;
+
+  width: 145px;
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      #9effff,
+      #6f42ff 45%,
+      #16103d 80%
+    );
+
+  box-shadow:
+    0 0 45px rgba(127, 252, 255, 0.45),
+    0 0 95px rgba(132, 83, 255, 0.32);
+}
+
+.planet::before {
+  content: "";
+
+  position: absolute;
+
+  width: 215px;
+  height: 32px;
+
+  left: -35px;
+  top: 55px;
+
+  border-radius: 50%;
+
+  border:
+    6px solid rgba(127, 252, 255, 0.72);
+
+  transform: rotate(-12deg);
+
+  box-shadow:
+    0 0 20px rgba(127, 252, 255, 0.6);
+}
+
+/* ========================================================= */
+/* MOUNTAINS */
+/* ========================================================= */
+
+.mountains {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 22%;
+
+  height: 280px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 22%,
+      rgba(69, 38, 118, 0.65) 22% 45%,
+      transparent 45%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 0 28%,
+      rgba(87, 46, 134, 0.75) 28% 58%,
+      transparent 58%
+    );
+
+  opacity: 0.72;
+}
+
+/* ========================================================= */
+/* NEON FLOOR */
+/* ========================================================= */
+
+.grid-floor {
+  position: absolute;
+
+  left: -25%;
+  right: -25%;
+
+  bottom: -75px;
+
+  height: 350px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      rgba(151, 91, 255, 0.85) 2px,
+      transparent 2px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(127, 252, 255, 0.55) 2px,
+      transparent 2px
+    );
+
+  background-size:
+    100% 34px,
+    58px 100%;
+
+  transform:
+    perspective(360px)
+    rotateX(64deg);
+
+  transform-origin: bottom;
+
+  box-shadow:
+    0 -20px 70px rgba(141, 75, 255, 0.28);
+}
+
+/* ========================================================= */
+/* RIGGED ALIEN */
+/* ========================================================= */
+
+.alien {
+  position: absolute;
+
+  left: 50%;
+  top: 45%;
+
+  width: 180px;
+  height: 310px;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  cursor: none;
+
+  z-index: 30;
+
+  transform-origin: center bottom;
+
+  animation:
+    alienRunForward
+    var(--run-time)
+    linear
+    infinite;
+
+  animation-delay:
+    var(--delay);
+
+  filter:
+    drop-shadow(
+      0 14px 20px rgba(0, 0, 0, 0.45)
+    )
+    drop-shadow(
+      0 0 13px rgba(127, 252, 255, 0.2)
+    );
+}
+
+/* ========================================================= */
+/* CHARACTER RIG */
+/* ========================================================= */
+
+.runner-rig {
+  position: relative;
+
+  width: 180px;
+  height: 310px;
+
+  transform-origin: center bottom;
+
+  animation:
+    runnerBounce
+    0.52s
+    linear
+    infinite;
+}
+
+.runner-part {
+  position: absolute;
+
+  display: block;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+/* ========================================================= */
+/* HEAD */
+/* ========================================================= */
+
+.runner-head {
+  width: 120px;
+  height: 120px;
+
+  left: 30px;
+  top: 0;
+
+  object-fit: contain;
+
+  z-index: 10;
+
+  transform-origin:
+    50% 85%;
+
+  animation:
+    headRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* BODY */
+/* ========================================================= */
+
+.runner-body {
+  width: 90px;
+  height: auto;
+
+  left: 45px;
+  top: 98px;
+
+  z-index: 6;
+
+  object-fit: contain;
+
+  animation:
+    torsoRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* LEFT ARM */
+/* ========================================================= */
+
+.left-arm {
+  width: 48px;
+  height: auto;
+
+  left: 20px;
+  top: 108px;
+
+  z-index: 5;
+
+  object-fit: contain;
+
+  transform-origin:
+    50% 8%;
+
+  animation:
+    leftArmRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* RIGHT ARM */
+/* ========================================================= */
+
+.right-arm {
+  width: 48px;
+  height: auto;
+
+  right: 20px;
+  top: 108px;
+
+  z-index: 7;
+
+  object-fit: contain;
+
+  transform-origin:
+    50% 8%;
+
+  animation:
+    rightArmRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* LEFT LEG */
+/* ========================================================= */
+
+.left-leg {
+  width: 48px;
+  height: auto;
+
+  left: 48px;
+  top: 188px;
+
+  z-index: 3;
+
+  object-fit: contain;
+
+  transform-origin:
+    50% 8%;
+
+  animation:
+    leftLegRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* RIGHT LEG */
+/* ========================================================= */
+
+.right-leg {
+  width: 48px;
+  height: auto;
+
+  right: 48px;
+  top: 188px;
+
+  z-index: 4;
+
+  object-fit: contain;
+
+  transform-origin:
+    50% 8%;
+
+  animation:
+    rightLegRunning
+    0.52s
+    linear
+    infinite;
+}
+
+/* ========================================================= */
+/* RUNNING BODY ANIMATIONS */
+/* ========================================================= */
+
+@keyframes leftArmRunning {
+
+  0% {
+    transform:
+      rotate(30deg);
+  }
+
+  25% {
+    transform:
+      rotate(5deg);
+  }
+
+  50% {
+    transform:
+      rotate(-32deg);
+  }
+
+  75% {
+    transform:
+      rotate(5deg);
+  }
+
+  100% {
+    transform:
+      rotate(30deg);
+  }
+}
+
+@keyframes rightArmRunning {
+
+  0% {
+    transform:
+      rotate(-32deg);
+  }
+
+  25% {
+    transform:
+      rotate(5deg);
+  }
+
+  50% {
+    transform:
+      rotate(30deg);
+  }
+
+  75% {
+    transform:
+      rotate(5deg);
+  }
+
+  100% {
+    transform:
+      rotate(-32deg);
+  }
+}
+
+@keyframes leftLegRunning {
+
+  0% {
+    transform:
+      rotate(-28deg)
+      translateY(2px);
+  }
+
+  25% {
+    transform:
+      rotate(0deg)
+      translateY(-4px);
+  }
+
+  50% {
+    transform:
+      rotate(30deg)
+      translateY(-2px);
+  }
+
+  75% {
+    transform:
+      rotate(0deg)
+      translateY(3px);
+  }
+
+  100% {
+    transform:
+      rotate(-28deg)
+      translateY(2px);
+  }
+}
+
+@keyframes rightLegRunning {
+
+  0% {
+    transform:
+      rotate(30deg)
+      translateY(-2px);
+  }
+
+  25% {
+    transform:
+      rotate(0deg)
+      translateY(3px);
+  }
+
+  50% {
+    transform:
+      rotate(-28deg)
+      translateY(2px);
+  }
+
+  75% {
+    transform:
+      rotate(0deg)
+      translateY(-4px);
+  }
+
+  100% {
+    transform:
+      rotate(30deg)
+      translateY(-2px);
+  }
+}
+
+@keyframes headRunning {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  25% {
+    transform:
+      translateY(-4px)
+      rotate(1deg);
+  }
+
+  50% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  75% {
+    transform:
+      translateY(-4px)
+      rotate(1deg);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+}
+
+@keyframes torsoRunning {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  25% {
+    transform:
+      translateY(-3px)
+      rotate(1deg);
+  }
+
+  50% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  75% {
+    transform:
+      translateY(-3px)
+      rotate(1deg);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+}
+
+@keyframes runnerBounce {
+
+  0% {
+    transform:
+      translateY(0);
+  }
+
+  25% {
+    transform:
+      translateY(-4px);
+  }
+
+  50% {
+    transform:
+      translateY(0);
+  }
+
+  75% {
+    transform:
+      translateY(-4px);
+  }
+
+  100% {
+    transform:
+      translateY(0);
+  }
+}
+
+/* ========================================================= */
+/* ALIEN RUNNING PATHS */
+/* ========================================================= */
+
+.alien-one {
+  --start-x: -40px;
+  --mid-x: -300px;
+  --end-x: -540px;
+
+  --delay: 0s;
+  --run-time: 7s;
+}
+
+.alien-two {
+  --start-x: -15px;
+  --mid-x: -140px;
+  --end-x: -280px;
+
+  --delay: 1s;
+  --run-time: 6.6s;
+}
+
+.alien-three {
+  --start-x: 10px;
+  --mid-x: 10px;
+  --end-x: -30px;
+
+  --delay: 2.1s;
+  --run-time: 7.1s;
+}
+
+.alien-four {
+  --start-x: 25px;
+  --mid-x: 180px;
+  --end-x: 300px;
+
+  --delay: 0.6s;
+  --run-time: 6.8s;
+}
+
+.alien-five {
+  --start-x: 45px;
+  --mid-x: 330px;
+  --end-x: 540px;
+
+  --delay: 1.7s;
+  --run-time: 7.3s;
+}
+
+.alien-six {
+  --start-x: 0px;
+  --mid-x: 70px;
+  --end-x: 150px;
+
+  --delay: 3s;
+  --run-time: 6.7s;
+}
+
+/* ========================================================= */
+/* RUN FROM DISTANCE TOWARD PLAYER */
+/* ========================================================= */
+
+@keyframes alienRunForward {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--start-x),
+        -180px
+      )
+      scale(0.12);
+
+    filter:
+      blur(1.5px)
+      brightness(0.65);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  28% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--start-x),
+        -60px
+      )
+      scale(0.30);
+
+    filter:
+      blur(0.5px)
+      brightness(0.8);
+  }
+
+  55% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--mid-x),
+        80px
+      )
+      scale(0.65);
+
+    filter:
+      blur(0)
+      brightness(1);
+  }
+
+  80% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--end-x),
+        230px
+      )
+      scale(1);
+  }
+
+  95% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--end-x),
+        350px
+      )
+      scale(1.3);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        var(--end-x),
+        430px
+      )
+      scale(1.5);
+  }
+}
+
+/* ========================================================= */
+/* ALIEN HIT */
+/* ========================================================= */
+
+.alien.zapped {
+  animation: none !important;
+  pointer-events: none;
+
+  opacity: 0;
+
+  filter:
+    brightness(4)
+    drop-shadow(
+      0 0 35px rgba(127, 252, 255, 1)
+    );
+
+  transition:
+    opacity 0.32s ease,
+    filter 0.32s ease;
+}
+
+/* ========================================================= */
+/* ZAP EFFECT */
+/* ========================================================= */
+
+.zap-effect {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border:
+    3px solid #7ffcff;
+
+  border-radius: 50%;
+
+  z-index: 100;
+
+  pointer-events: none;
+
+  animation:
+    zapBlast
+    0.45s
+    ease-out
+    forwards;
+
+  box-shadow:
+    0 0 18px rgba(127, 252, 255, 0.95),
+    0 0 35px rgba(255, 122, 247, 0.7);
+}
+
+/* ========================================================= */
+/* MOUSE SHOT FLASH */
+/* ========================================================= */
+
+.shot-flash {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  pointer-events: none;
+
+  z-index: 210;
+
+  transform:
+    translate(-50%, -50%);
+
+  box-shadow:
+    0 0 8px #ffffff,
+    0 0 18px #7ffcff,
+    0 0 35px #7ffcff,
+    0 0 55px #ff7af7;
+
+  animation:
+    shotFlash
+    0.25s
+    ease-out
+    forwards;
+}
+
+
+@keyframes shotFlash {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.4);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.8);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(3);
+  }
+}
+
+@keyframes zapBlast {
+
+  0% {
+    opacity: 1;
+    transform: scale(0.15);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+/* ========================================================= */
+/* SMALL HIT PARTICLES */
+/* ========================================================= */
+
+.hit-particle {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #7ffcff;
+
+  pointer-events: none;
+
+  z-index: 110;
+
+  box-shadow:
+    0 0 10px #7ffcff;
+
+  animation:
+    hitParticleMove
+    0.55s
+    ease-out
+    forwards;
+}
+
+@keyframes hitParticleMove {
+
+  from {
+    opacity: 1;
+
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translate(
+        var(--particle-x),
+        var(--particle-y)
+      )
+      scale(0.3);
+  }
+}
+
+/* ========================================================= */
+/* LASER */
+/* ========================================================= */
+
+.laser-shot {
+  position: absolute;
+
+  height: 4px;
+
+  border-radius: 999px;
+
+  z-index: 105;
+
+  pointer-events: none;
+
+  transform-origin:
+    left center;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #7ffcff,
+      #ff7af7
+    );
+
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 18px rgba(127, 252, 255, 0.95),
+    0 0 30px rgba(255, 122, 247, 0.65);
+
+  animation:
+    laserFade
+    0.28s
+    ease-out
+    forwards;
+}
+
+@keyframes laserFade {
+
+  from {
+    opacity: 1;
+    filter: brightness(2);
+  }
+
+  to {
+    opacity: 0;
+    filter: brightness(1);
+  }
+}
+
+/* ========================================================= */
+/* MOUSE CROSSHAIR */
+/* ========================================================= */
+
+.space-scene,
+.space-scene * {
+  cursor: none;
+}
+
+.crosshair {
+  display: none !important;
+}
+
+.mouse-crosshair {
+  position: absolute;
+
+  width: 42px;
+  height: 42px;
+
+  z-index: 200;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%);
+
+  display: none;
+
+  border:
+    2px solid rgba(127, 252, 255, 0.9);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px rgba(127, 252, 255, 0.9),
+    inset 0 0 8px rgba(127, 252, 255, 0.3);
+}
+
+.mouse-crosshair::before {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 8px #7ffcff;
+}
+
+.mouse-crosshair::after {
+  content: "";
+
+  position: absolute;
+
+  width: 54px;
+  height: 54px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  background:
+    linear-gradient(#7ffcff, #7ffcff)
+      center top / 2px 9px no-repeat,
+
+    linear-gradient(#7ffcff, #7ffcff)
+      center bottom / 2px 9px no-repeat,
+
+    linear-gradient(#7ffcff, #7ffcff)
+      left center / 9px 2px no-repeat,
+
+    linear-gradient(#7ffcff, #7ffcff)
+      right center / 9px 2px no-repeat;
+}
+
+.mouse-crosshair.active {
+  display: block;
+}
+
+.mouse-crosshair.shoot {
+  animation:
+    crosshairShoot
+    0.18s
+    ease;
+}
+
+@keyframes crosshairShoot {
+
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.72);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+/* ========================================================= */
+/* DETAIL POPUP */
+/* ========================================================= */
+
+.detail-popup {
+  position: absolute;
+
+  top: 50%;
+  right: 5%;
+
+  width: 390px;
+  max-width: 88%;
+
+  z-index: 180;
+
+  padding: 30px;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 12, 45, 0.96),
+      rgba(5, 5, 20, 0.95)
+    );
+
+  border:
+    1px solid rgba(127, 252, 255, 0.45);
+
+  box-shadow:
+    0 0 40px rgba(127, 252, 255, 0.18),
+    0 0 90px rgba(255, 122, 247, 0.12);
+
+  backdrop-filter:
+    blur(18px);
+
+  transform:
+    translateY(-50%)
+    translateX(40px)
+    scale(0.9);
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.detail-popup.show {
+  opacity: 1;
+
+  pointer-events: auto;
+
+  animation:
+    popupIn
+    0.38s
+    ease
+    forwards;
+}
+
+@keyframes popupIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-50%)
+      translateX(40px)
+      scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      translateX(0)
+      scale(1);
+  }
+}
+
+.popup-label {
+  color: #ff7af7;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 12px;
+}
+
+.detail-popup h2 {
+  color: #7ffcff;
+
+  font-size: 32px;
+
+  margin-bottom: 14px;
+}
+
+.detail-popup p {
+  color: #eee8ff;
+
+  font-size: 17px;
+
+  line-height: 1.65;
+}
+
+.close-popup {
+  position: absolute;
+
+  top: 13px;
+  right: 15px;
+
+  width: 36px;
+  height: 36px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(127, 252, 255, 0.12);
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  cursor: none;
+}
+
+/* ========================================================= */
+/* MISSION COMPLETE */
+/* ========================================================= */
+
+.mission-complete {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 220;
+
+  width: 500px;
+  max-width: 90%;
+
+  padding: 38px;
+
+  text-align: center;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 12, 45, 0.98),
+      rgba(5, 5, 20, 0.97)
+    );
+
+  border:
+    1px solid rgba(127, 252, 255, 0.5);
+
+  box-shadow:
+    0 0 60px rgba(127, 252, 255, 0.24),
+    0 0 120px rgba(255, 122, 247, 0.15);
+
+  backdrop-filter:
+    blur(20px);
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.8);
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.mission-complete.show {
+  opacity: 1;
+
+  pointer-events: auto;
+
+  animation:
+    missionIn
+    0.5s
+    ease
+    forwards;
+}
+
+@keyframes missionIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+.mission-complete h2 {
+  color: #7ffcff;
+
+  font-size: 40px;
+
+  margin-bottom: 12px;
+}
+
+.mission-complete p {
+  color: #eee8ff;
+
+  font-size: 17px;
+
+  margin-bottom: 22px;
+}
+
+.mission-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.mission-buttons a {
+  padding: 12px 18px;
+
+  border-radius: 14px;
+
+  background: #7ffcff;
+
+  color: #050510;
+
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+.mission-buttons a:hover {
+  background: #ffffff;
+}
+
+/* ========================================================= */
+/* MOBILE */
+/* ========================================================= */
+
+@media (max-width: 800px) {
+
+  .game-navbar {
+    padding: 14px 5%;
+  }
+
+  .game-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .game-navbar nav {
+    gap: 12px;
+  }
+
+  .game-navbar nav a {
+    font-size: 12px;
+  }
+
+  .game-hud {
+    top: 82px;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .game-hud h1 {
+    font-size: 31px;
+  }
+
+  .game-instruction {
+    font-size: 13px;
+  }
+
+  .score-box {
+    padding: 10px 16px;
+  }
+
+  .planet {
+    width: 100px;
+    height: 100px;
+
+    top: 25%;
+    right: 8%;
+  }
+
+  .planet::before {
+    width: 145px;
+
+    left: -23px;
+    top: 37px;
+  }
+
+  .alien {
+    width: 140px;
+    height: 245px;
+  }
+
+  .runner-rig {
+    transform: scale(0.78);
+    transform-origin: top left;
+  }
+
+  .detail-popup {
+    left: 5%;
+    right: 5%;
+
+    width: auto;
+
+    top: 60%;
+
+    padding: 24px;
+  }
+
+  .detail-popup h2 {
+    font-size: 26px;
+  }
+
+  .detail-popup p {
+    font-size: 15px;
+  }
+
+  .mission-complete {
+    padding: 28px 20px;
+  }
+
+  .mission-complete h2 {
+    font-size: 32px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+
+  .space-scene,
+  .space-scene * {
+    cursor: auto;
+  }
+
+  .mouse-crosshair {
+    display: none !important;
+  }
+}
+
+/* ========================================================= */
+/* NORMAL MOUSE FOR POPUPS / MENU BUTTONS */
+/* ========================================================= */
+
+.detail-popup,
+.detail-popup *,
+.mission-complete,
+.mission-complete * {
+  cursor: auto !important;
+}
+
+/* Show hand cursor on clickable buttons/links */
+.detail-popup button,
+.mission-complete a,
+.mission-complete button {
+  cursor: pointer !important;
+}
